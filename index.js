@@ -1,5 +1,12 @@
-const obj = require('./user')
+const http = require('http')
 
-console.log(obj.user)
+const server = http.createServer((req, res) => {
+  console.log(req.url)
 
-obj.sayHello()
+  res.write('Hello from NodeJs')
+  res.end()
+})
+
+server.listen(3001, () => {
+  console.log('Server is running...')
+})
